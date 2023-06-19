@@ -17,8 +17,8 @@
 
 | 회차 |        일시        |   목차    | 
 |:--:|:----------------:|:-------:|
-| 1  | 6월 13일  |    [그리디](https://github.com/boyeonJ/Algorithm_Study/tree/main/%EB%8B%B9%EC%9E%A5%20%EC%A2%8B%EC%9D%80%20%EA%B2%83%EB%A7%8C%20%EC%84%A0%ED%83%9D%ED%95%98%EB%8A%94%20%60%EA%B7%B8%EB%A6%AC%EB%94%94%60)    |
-| 2  | 6월 20일  |  구현   |
+| 1  | 6월 13일  |   [그리디](https://github.com/boyeonJ/Algorithm_Study/tree/main/%EB%8B%B9%EC%9E%A5%20%EC%A2%8B%EC%9D%80%20%EA%B2%83%EB%A7%8C%20%EC%84%A0%ED%83%9D%ED%95%98%EB%8A%94%20'%EA%B7%B8%EB%A6%AC%EB%94%94')    |
+| 2  | 6월 20일  |  [구현](https://github.com/boyeonJ/Algorithm_Study/tree/main/%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%EB%A5%BC%20%EC%BD%94%EB%93%9C%EB%A1%9C%20%EB%B0%94%EA%BE%B8%EB%8A%94%20'%EA%B5%AC%ED%98%84')   |
 | 3  | 6월 27일  | DFS/BFS |
 | 4  |   | 정렬 |
 | 5  |   | 이진 탐색 |
