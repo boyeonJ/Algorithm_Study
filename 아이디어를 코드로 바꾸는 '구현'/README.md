@@ -63,7 +63,20 @@ console.log(solution('g7'))
 ```
 #### 하은
 ```javascript
+// a-h 중 몇번째 인덱스인지 찾기 위함
+const X = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h'];
+const steps = [[-2,-1], [-2,1], [-1,-2], [-1,2], [1,-2], [1,2], [2,-1], [2,1]];
 
+function solution(knight) { 
+    const [x,y] = [X.indexOf(knight[0])+1, parseInt(knight[1])]
+    let result = 0;
+    for (const step of steps) {
+        const [nextX, nextY] = [x+step[0], y+step[1]];
+        if(nextX >= 1 && nextX <=8 && nextY >= 1 && nextY <= 8)
+            result++;
+    }
+    return result;
+}
 ```
 #### 희정
 ```javascript
