@@ -27,7 +27,34 @@ console.log(solution(5,'R R R U D D'));
 ```
 #### 하은
 ```javascript
+/*
+P: 공간의 크기 n, 이동계획 배열 steps
+R: 움직인 후 결과 좌표
+E: 5/[R,R,R,U,D,D] => [3,4]
+P:
+1. L,R,U,D가 각각 의미하는 연산 배열. [dx, dy] 형식으로
+2. steps 반복문 돌려서 연산
 
+*/
+
+const directions = {
+    L: [0, -1],
+    R: [0, 1],
+    U: [-1, 0],
+    D: [1, 0]
+};
+function solution(n, steps) {
+    let res = [1,1];
+    
+    for(const step of steps) {
+        const row = res[0]+ directions[step][0];
+        const col = res[1]+ directions[step][1];
+
+        if (row >= 1 && row <= n && col >= 1 && col <= n)
+            res = [row, col]
+    }
+    return res
+}
 ```
 #### 희정
 ```javascript
