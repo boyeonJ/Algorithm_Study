@@ -79,7 +79,35 @@ console.log(solution(15,14,input));
 ```
 #### 하은
 ```javascript
+function solution(n, m, arr){
+    const newMap = arr.map(row => row.split(''));
 
+    let result = 0; // 총 생성된 아이스크림 개수
+
+    for(let i=0; i < n; i++) {
+        for(let j=0; j < m; j++) {
+            // 깊이우선탐색 하나가 끝나는 경우에 +1
+            if(dfs(i,j)) result+=1;
+        }
+    }
+
+    function dfs(x, y) {
+        if(x >= 0 && x < n && y >= 0 && y < m) {
+            if(newMap[x][y] == 0) {
+                newMap[x][y] = 1;
+                dfs(x, y+1);
+                dfs(x, y-1);
+                dfs(x+1, y);
+                dfs(x-1, y);
+                return true;
+            }
+        }
+    
+        return false
+    }
+    
+    return result;
+}
 ```
 #### 희정
 ```javascript
