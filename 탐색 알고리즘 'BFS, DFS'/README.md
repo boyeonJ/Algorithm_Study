@@ -83,7 +83,49 @@ console.log(solution(15,14,input));
 ```
 #### 희정
 ```javascript
+function icecream(n,m,graph) {
+    const visitQueue = Array.from({length: n}, () => Array.from({length: m}, () => false));
 
+    function bfs(i,j, graph) {
+        let queue = [];
+        const direction = [[-1,0], [1,0], [0, -1], [0, 1]];
+        visitQueue[i][j] = true;
+        queue.push([i,j]);    
+        while (queue.length) {
+            let [x,y] = queue.shift();
+            for (let i = 0; i < 4; i++) {
+              const calcX = x + direction[i][0];
+              const calcY = y + direction[i][1];
+        
+              if (calcX < 0 || calcX >= n || calcY < 0 || calcY >= m)
+                continue;
+        
+              if (!visitQueue[calcX][calcY] && graph[calcX][calcY] === 0) {
+                queue.push([calcX, calcY]);
+                visitQueue[calcX][calcY] = true;
+              }
+            }
+            
+        }
+    }
+
+  let count = 0;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      if (!visitQueue[i][j] && graph[i][j] === 0) {//시작
+        bfs(i,j, graph, n,m);
+        count++;
+      }
+    }
+  }
+
+  return count;
+    
+}
+
+console.log(icecream(4,5,[[0,0,1,1,0],[0,0,0,1,1],[1,1,1,1,1],[0,0,0,0,0]]));
+console.log(icecream(3,3,[[1,1,1],[0,1,0],[1,1,1]]));
 ```
 
 ### 📌 [실전 문제] 미로 탈출
