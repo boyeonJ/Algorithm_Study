@@ -21,8 +21,31 @@ result = ((array[0]*k)+array[1])*(Math.floor(m/(k+1))) + (array[0]*(m%(k+1)));
 console.log(result);
 ```
 #### 하은
-```javascript
 
+P: 배열의 크기 N, 숫자가 더해지는 횟수 M, 한 인덱스의 수가 연속해 더해질 수 있는 최대 횟수 K  
+R: 배열 N에 큰 수의 법칙을 적용해 만들 수 있는 '가장 큰 수'  
+E: N:5 M:8 K:3 / 배열: [2 4 5 4 6] 이 입력되면 46을 출력  
+P: 
+1. 배열에서 가장 큰 수를 K 번 더한다. 이때 더한 횟수를 누적한다.  
+2. 배열에서 두번쨰로 큰 수를 1번 더한다. 더한 횟수를 누적한다.  
+3. 더한 횟수가 M이 될때까지 반복한다.
+
+```javascript
+function solution(N, M, K, arr) {
+    let count = 0;
+    let result = 0;
+    const sorted = arr.sort((a,b) => b-a); 
+    
+    while(count < M) {
+        for(let i=0; i<K;i++) {
+            result += sorted[0];
+            count++;
+        }
+        result += sorted[1];
+        count++;
+    }
+    return result;
+}
 ```
 #### 희정
 ```javascript
@@ -46,9 +69,27 @@ const result = array.sort((a,b)=>b-a)[0];
 console.log(result);
 ```
 #### 하은
-```javascript
 
+P: NXM 행렬의 N과 M, 카드 배열  
+R: 각 행의 최소값 중 가장 큰 값  
+E: `3,3, [[3,1,2], [4,1,4], [2,2,2]]`  
+P:   
+1. 각 행의 최소값을 담는 배열을 만든다.  
+2. 그 배열의 최댓값을 구한다.
+   
+```javascript
+function solution(n,m, cards) {
+    let mins = []; // 각 카드 행의 최소값을 담는 배열
+    
+    for(let row of cards) {
+        // 각 행 정렬 후 가장 작은 값을 mins에 넣음
+        mins.push(Math.min(...row)); 
+    }
+    
+    return Math.max(...mins);
+}
 ```
+
 #### 희정
 ```javascript
 
