@@ -114,9 +114,29 @@ while(n>1){
 console.log(count)
 ```
 #### 하은
-```javascript
 
+- P: N, K
+- R: N이 1이 될 때까지 1번 혹은 2번의 과정을 수행해야하는 **최소 횟수**
+- E: N이 17, K가 4라면 1번의 과정을 한 번 수행하면 N은 16이 됩니다. 이후에 2번의 과정을 두번 수행하면 N은 1이 됩니다. 
+결과적으로 이 경우 전체 과정을 실행한 횟수는 3이 됩니다. 이는 N을 1로 만드는 최소 횟수입니다
+- P:
+1. N/K의 나머지가 0이 아니면 1번 연산을 반복한다.
+2. N/K의 나머지가 0이 되면 2번 연산을 반복한다.
+
+```javascript
+function solution(N, K) {
+  let result = 0;
+  let number = N;
+    
+  while (number % K) {
+    number -= 1;
+    result += 1;
+ }
+ 
+  return result + (Math.log(number) / Math.log(K));
+}
 ```
+
 #### 희정
 ```javascript
 
