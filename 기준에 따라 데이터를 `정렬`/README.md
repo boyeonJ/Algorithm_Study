@@ -55,7 +55,21 @@ function solution(arr) {
 ### 📌 [실전 문제] 두 배열의 원소 교체
 #### 보연
 ```javascript
+let arrayA = [1, 2, 5, 4, 3];
+let arrayB = [5, 5, 6, 6, 5];
+const k = 3;
 
+arrayA.sort((a, b) => a - b);
+arrayB.sort((a, b) => a - b);
+
+for (let i = 0; i < k; i++) {
+  [arrayA[0], arrayB[arrayB.length - 1]] = [arrayB[arrayB.length - 1], arrayA[0]];
+  arrayA.sort((a, b) => a - b);
+  arrayB.sort((a, b) => a - b);
+}
+
+const sum = arrayA.reduce((a, b) => a + b);
+console.log(sum);
 ```
 #### 하은
 
