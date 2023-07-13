@@ -10,7 +10,9 @@ console.log(solution([3, 15, 27, 12]));
 ```
 #### 하은
 ```javascript
-
+function solution(arr) {
+    return arr.sort((a,b) => b-a);
+}
 ```
 #### 희정
 ```javascript
@@ -42,7 +44,9 @@ console.log(solution(2, ['홍길동 95','이순신 77', '정보연 100']));
 ```
 #### 하은
 ```javascript
-
+function solution(arr) {
+    return arr.sort((a,b) => a.score - b.score);
+}
 ```
 #### 희정
 ```javascript
@@ -54,8 +58,25 @@ console.log(solution(2, ['홍길동 95','이순신 77', '정보연 100']));
 
 ```
 #### 하은
-```javascript
 
+- P: 배열 원소 개수 n, 바꿔치기 횟수 k, 배열2개
+- R: 최대 k번의 바꿔치기를 해 만들 수 있는 배열a의 합의 최대값
+- E:
+- P: 
+    1. 배열a을 오름차순으로, 배열b를 내림차순으로 정렬한다 
+    2. a, b 인덱스 처음부터 k개만큼 바꿔치기를 한다
+    3. 배열 a의 합을 구한다
+   
+```javascript
+function solution(n, k, arrA, arrB) {
+    let aAsc = arrA.sort((a,b) => a-b);
+    let bDesc = arrB.sort((a,b) => b-a);
+
+    for(let i=0;i<k;i++) {
+      aAsc[i] = bDesc[i];  
+    }
+    return aAsc.reduce((a,b)=>a+b);
+}
 ```
 #### 희정
 ```javascript
