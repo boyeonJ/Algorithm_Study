@@ -40,6 +40,39 @@ const solution = () => {
 ### 📌 [실전 문제] 떡볶이 떡 만들기
 #### 보연
 ```javascript
+const findLength = (request, range, target, start, end)=>{
+	if (start > end) {
+        return end; 
+    }
+
+	const mid = Math.floor((start + end)/2);
+
+	let sum = 0;
+	
+	for(let val of request){
+		if(val-range[mid] > 0) sum += val-range[mid];
+	}
+
+	if(sum === target) return range[mid];
+	else if(sum > target) return findLength(request, range, 6, mid+1, end);
+	else return findLength(request, range, 6, start, mid-1);
+}
+
+const solution = ()=>{
+	const n = 4;
+	const m = 6;
+	const request = [19, 15, 10, 17].sort((a,b)=>a-b);
+
+	let range = [];
+
+	for(let i=request[0]; i<request[request.length-1]+1; i++){
+		range.push(i);
+	}	
+
+	findLength(request, range, 6, 0, range.length-1);
+}
+
+console.log(solution());
 ```
 #### 하은
 ```javascript
